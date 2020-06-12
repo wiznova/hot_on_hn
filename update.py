@@ -71,15 +71,15 @@ def get_info_dicts(url = 'https://news.ycombinator.com/', page = ''):
         i += 1
     return info_dicts
 
-sort_f = lambda k: max(int(k['points']) * int(k['nb_comments']), 0)
+sort_f = lambda k: max(int(k['points']) * int(k['nb_comments']), int(k['points']))
 front_page_dicts = []
 for i in range(1, 4):
     front_page_dicts += get_info_dicts(page = i)
 all_sorted = sorted(front_page_dicts, key=sort_f, reverse = True)
 info_dicts = all_sorted
 
-with open("./new.css", "r") as f:
-    css_script = f.read()
+#with open("./new.css", "r") as f:
+#    css_script = f.read()
 
 strTable = f"""
 <!DOCTYPE html>
@@ -90,13 +90,15 @@ strTable = f"""
     <title>hn archiver demo</title>
     <meta name="description" content="Here you can view the all the links that were on a front page of hn today">
     <meta name="keywords" content="hn,hackernews,project,news,links">
-    <style>{css_script}</style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1/new.min.css">
+    <link rel="stylesheet" href="https://fonts.xz.style/serve/inter.css">
 </head>
 <body>
 <table><tr><th>Score</th><th>Article</th><th>comments</th></tr>
 """
 #<th>seen at</th>
 #<link rel="stylesheet" href="new.css">
+#<style>{css_script}</style>
 
 #     <link rel="stylesheet" href="new.css">
 def a(href, text, blank=True):
