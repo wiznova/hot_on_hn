@@ -92,6 +92,11 @@ strTable = f"""
     <meta name="keywords" content="hn,hackernews,project,news,links">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1/new.min.css">
     <link rel="stylesheet" href="https://fonts.xz.style/serve/inter.css">
+    <style>
+    body {{
+            max-width: 800px;
+            }}
+    </style>
 </head>
 <body>
 <table><tr><th>Score</th><th>Article</th><th>comments</th></tr>
