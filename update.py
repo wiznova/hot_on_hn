@@ -28,7 +28,7 @@ def get_info(soup):
         line = line.split()
         posted_idx = line.index("ago")
 
-        d['points'] = line[0] if has_points else ""
+        d['points'] = line[0] if has_points else 0
         d['nb_comments'] = line[-2] if has_comment else 0
         d['author'] = line[3] if has_author else ""
         d['posted_at'] = " ".join(line[posted_idx - 2:posted_idx + 1])
